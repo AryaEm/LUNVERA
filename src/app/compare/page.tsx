@@ -25,7 +25,7 @@ function CategoryVisual({ category, accent }: { category: string; accent: string
         <div className="flex items-baseline gap-1.5">
           <span className="text-[0.65rem] font-mono text-[#7FA88F]">Aa</span>
           <span
-            className="font-family-name:var(--font-fraunces) text-lg font-bold"
+            className="font-[family-name:var(--font-fraunces)] text-lg font-bold"
             style={{ color: accent }}
           >
             Aa
@@ -61,16 +61,13 @@ function CategoryVisual({ category, accent }: { category: string; accent: string
 
 export default function ComparePage() {
   return (
-    <main className="relative mx-auto max-w-6xl px-[6vw] py-16 md:py-24">
-      {/* Background Ambient Blur */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-96 w-full -translate-x-1/2 rounded-full bg-[#7FA88F]/5 blur-3xl" />
-
+    <main className="relative overflow-hidden bg-[#14201D] px-[12vw] min-h-[calc(100dvh-73px)] flex  justify-center flex-col">
       {/* Header Section */}
       <div className="mb-12 max-w-2xl">
         <p className="mb-3 font-family-name:var(--font-mono) text-[0.72rem] uppercase tracking-[0.16em] text-[#7FA88F]">
           Komparasi Desain
         </p>
-        <h1 className="font-family-name:var(--font-fraunces) text-[clamp(1.8rem,3.2vw,2.6rem)] font-semibold leading-tight text-[#F6F2E9]">
+        <h1 className="font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.2vw,2.6rem)] font-semibold leading-tight text-[#F6F2E9]">
           Lihat langsung bedanya, satu kasus dalam satu waktu
         </h1>
       </div>
@@ -112,13 +109,13 @@ export default function ComparePage() {
                     </span>
                   </div>
 
-                  <span className="font-family-name:var(--font-fraunces) text-lg font-bold text-[#2E3D37] transition-colors duration-300 group-hover:text-[#7FA88F]/50">
+                  <span className="font-[family-name:var(--font-fraunces)] text-lg font-bold text-[#2E3D37] transition-colors duration-300 group-hover:text-[#7FA88F]/50">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Card Title */}
-                <h2 className="font-family-name:var(--font-fraunces) text-lg font-semibold leading-snug text-[#F6F2E9] transition-colors duration-200 group-hover:text-white">
+                <h2 className="font-[family-name:var(--font-fraunces)] text-lg font-semibold leading-snug text-[#F6F2E9] transition-colors duration-200 group-hover:text-white">
                   {item.title}
                 </h2>
               </div>

@@ -9,7 +9,7 @@ export function CompareCard({ variant }: { variant: Variant }) {
         <span className="font-family-name:var(--font-mono) text-[0.65rem] uppercase tracking-[0.18em] text-[#6E7A75]">
           Portofolio
         </span>
-        <h3 className="mt-3 font-family-name:var(--font-fraunces) text-2xl font-semibold text-[#F6F2E9]">
+        <h3 className="mt-3 font-[family-name:var(--font-fraunces)] text-2xl font-semibold text-[#F6F2E9]">
           Kanvas Studio
         </h3>
         <p className="mt-1.5 text-sm leading-relaxed text-[#9BAAA4]">
@@ -59,7 +59,7 @@ export function CompareCard({ variant }: { variant: Variant }) {
         <span className="mb-2 inline-block font-family-name:var(--font-mono) text-[0.75rem] font-medium text-[#7FA88F]">
           Lihat karya →
         </span>
-        <h3 className="mt-6 text-right font-family-name:var(--font-fraunces) text-2xl font-semibold text-[#F6F2E9]">
+        <h3 className="mt-6 text-right font-[family-name:var(--font-fraunces)] text-2xl font-semibold text-[#F6F2E9]">
           Kanvas Studio
         </h3>
         <p className="mt-8 text-sm leading-relaxed text-[#9BAAA4]">
@@ -75,7 +75,7 @@ export function CompareCard({ variant }: { variant: Variant }) {
         <span className="font-family-name:var(--font-mono) text-[0.65rem] uppercase tracking-[0.18em] text-[#6E7A75]">
           Portofolio
         </span>
-        <h3 className="font-family-name:var(--font-fraunces) text-2xl font-semibold leading-none text-[#F6F2E9]">
+        <h3 className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold leading-none text-[#F6F2E9]">
           Kanvas Studio
         </h3>
         <p className="text-sm leading-none text-[#9BAAA4]">Jasa desain identitas visual & web untuk brand kecil.</p>

@@ -24,8 +24,7 @@ export default function HeroCompare() {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-[0.95fr_1.05fr] md:gap-[5vw]">
         {/* copy column */}
         <div>
-          <p className="mb-6 inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.16em] text-[#7FA88F]">
-            <span className="inline-block h-px w-6 bg-[#BD5B34]" />
+          <p className="mb-6 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-[#7FA88F]">
             Panduan visual untuk pemula
           </p>
 
@@ -43,7 +42,7 @@ export default function HeroCompare() {
           </h1>
 
           <p className="mb-9 max-w-130 text-[1.05rem] leading-relaxed text-[#9BAAA4]">
-            Tidak tahu kenapa desainmu terasa kayak template orang lain? Lihat langsung bedanya — geser
+            Tidak tahu kenapa desainmu terasa kayak template orang lain? Lihat langsung bedanya, geser
             slider di samping, dari yang generik jadi yang punya identitas sendiri.
           </p>
 
@@ -57,13 +56,13 @@ export default function HeroCompare() {
             </button>
             <button
               type="button"
-              className="font-[family-name:var(--font-mono)] text-[0.8rem] uppercase tracking-[0.08em] text-[#F6F2E9] underline decoration-[#2E3D37] underline-offset-[6px] transition-colors hover:text-[#7FA88F] hover:decoration-[#7FA88F]"
+              className="font-mono text-[0.8rem] uppercase tracking-[0.08em] text-[#F6F2E9] underline decoration-[#2E3D37] underline-offset-[6px] transition-colors hover:text-[#7FA88F] hover:decoration-[#7FA88F]"
             >
               Lihat cara kerjanya
             </button>
           </div>
 
-          <p className="mb-3 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.1em] text-[#6E7A75]">
+          <p className="mb-3 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-[#6E7A75]">
             Mulai dari yang paling sering bikin bingung
           </p>
           <div className="flex flex-wrap gap-2">
@@ -91,7 +90,7 @@ export default function HeroCompare() {
                 >
                   K
                 </div>
-                <span className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-[0.18em] text-[#6E7A75]">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-[#6E7A75]">
                   Portofolio
                 </span>
                 <h2 className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl font-semibold text-[#F6F2E9]">
@@ -100,7 +99,7 @@ export default function HeroCompare() {
                 <p className="mt-1.5 text-sm leading-relaxed text-[#9BAAA4]">
                   Jasa desain identitas visual & web dengan gaya yang gak pasaran.
                 </p>
-                <span className="mt-5 inline-block font-[family-name:var(--font-mono)] text-[0.75rem] font-medium text-[#7FA88F]">
+                <span className="mt-5 inline-block font-mono text-[0.75rem] font-medium text-[#7FA88F]">
                   Lihat karya →
                 </span>
               </div>
@@ -123,11 +122,11 @@ export default function HeroCompare() {
               </div>
             </div>
 
-            <span className="absolute left-[5%] top-[5%] z-3 rounded-full bg-[#14201D] px-3 py-1 font-[family-name:var(--font-mono)] text-[0.62rem] uppercase tracking-wide text-[#E4907A]">
+            <span className="absolute left-[5%] top-[5%] z-3 rounded-full bg-[#14201D] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-wide text-[#E4907A]">
               Biasa
             </span>
-            <span className="absolute right-[5%] top-[5%] z-3 rounded-full bg-[#7FA88F] px-3 py-1 font-[family-name:var(--font-mono)] text-[0.62rem] uppercase tracking-wide text-[#14201D]">
-              Unik
+            <span className="absolute right-[5%] top-[5%] z-3 rounded-full bg-[#7FA88F] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-wide text-[#14201D]">
+              Lebih Baik
             </span>
 
             <div className="pointer-events-none absolute inset-y-0 z-2 w-0 -translate-x-px" style={{ left: `${pos}%` }}>
@@ -148,7 +147,7 @@ export default function HeroCompare() {
             />
           </div>
 
-          <p className="mt-4 flex items-center justify-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.08em] text-[#6E7A75]">
+          <p className="mt-4 flex items-center justify-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-[#6E7A75]">
             <MoveHorizontal size={14} />
             Geser untuk membandingkan
           </p>

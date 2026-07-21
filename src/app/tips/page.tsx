@@ -13,7 +13,7 @@ export default function TipsPage() {
           Tips untuk Pemula
         </p>
 
-        <h1 className="mb-5 font-family-name:var(--font-fraunces) text-5xl leading-tight text-[#F6F2E9]">
+        <h1 className="mb-5 font-[family-name:var(--font-fraunces)] text-5xl leading-tight text-[#F6F2E9]">
           6 Kebiasaan Desainer yang Terus Berkembang
         </h1>
 
@@ -49,7 +49,7 @@ export default function TipsPage() {
               </span>
             </div>
 
-            <h2 className="mb-4 font-family-name:var(--font-fraunces) text-2xl text-[#F6F2E9]">
+            <h2 className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl text-[#F6F2E9]">
               {tip.title}
             </h2>
 

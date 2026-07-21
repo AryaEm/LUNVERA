@@ -28,7 +28,7 @@ export default async function CompareDetailPage({
             <span className="font-family-name:var(--font-mono) text-[0.72rem] uppercase tracking-[0.16em] text-[#7FA88F]">
                 {item.category}
             </span>
-            <h1 className="mb-8 mt-2 font-family-name:var(--font-fraunces) text-[clamp(1.8rem,3.4vw,2.6rem)] font-semibold leading-tight text-[#F6F2E9]">
+            <h1 className="mb-8 mt-2 font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.4vw,2.6rem)] font-semibold leading-tight text-[#F6F2E9]">
                 {item.title}
             </h1>
 
@@ -41,14 +41,14 @@ export default async function CompareDetailPage({
 
             <div className="flex flex-col gap-8">
                 <section>
-                    <h2 className="mb-2 font-family-name:var(--font-fraunces) text-lg font-semibold text-[#F6F2E9]">
+                    <h2 className="mb-2 font-[family-name:var(--font-fraunces)] text-lg font-semibold text-[#F6F2E9]">
                         Masalah desain
                     </h2>
                     <p className="leading-relaxed text-[#C4CBC8]">{item.problem}</p>
                 </section>
 
                 <section>
-                    <h2 className="mb-2 font-family-name:var(--font-fraunces) text-lg font-semibold text-[#F6F2E9]">
+                    <h2 className="mb-2 font-[family-name:var(--font-fraunces)] text-lg font-semibold text-[#F6F2E9]">
                         Apa yang berubah?
                     </h2>
                     <p className="leading-relaxed text-[#C4CBC8]">{item.whatChanged}</p>
