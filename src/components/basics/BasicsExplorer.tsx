@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check, X, Sparkles, ArrowRight } from "lucide-react";
 import { TOPICS, type Block } from "@/lib/basics-content";
 
-// Helper sederhana untuk me-render teks dengan highlight tanpa lib eksternal
 function HighlightedText({ text }: { text: string }) {
-  // Memecah teks berdasarkan pola **kata** atau <hl>kata</hl>
   const parts = text.split(/(\*\*.*?\*\*)/g);
 
   return (
@@ -14,7 +12,7 @@ function HighlightedText({ text }: { text: string }) {
       {parts.map((part, i) => {
         if (part.startsWith("**") && part.endsWith("**")) {
           return (
-            <span key={i} className="font-medium text-[#7FA88F]">
+            <span key={i} className="font-semibold text-[#BD5B34]">
               {part.slice(2, -2)}
             </span>
           );
@@ -36,28 +34,28 @@ function BlockRenderer({ block }: { block: Block }) {
 
     case "h3":
       return (
-        <h3 className="mt-6 font-[family-name:var(--font-fraunces)] text-xl font-semibold text-[#F6F2E9]">
+        <h3 className="mt-8 mb-2 flex items-center gap-2 font-[family-name:var(--font-fraunces)] text-xl font-semibold text-[#F6F2E9]">
           <HighlightedText text={block.text} />
         </h3>
       );
 
     case "h4":
       return (
-        <h4 className="mt-3 font-[family-name:var(--font-mono)] text-[0.8rem] uppercase tracking-[0.1em] text-[#7FA88F]">
+        <h4 className="mt-4 font-[family-name:var(--font-mono)] text-[0.82rem] uppercase tracking-[0.12em] text-[#7FA88F]">
           <HighlightedText text={block.text} />
         </h4>
       );
 
     case "list":
       return (
-        <ul className="my-2 flex flex-col gap-3">
+        <ul className="my-3 flex flex-col gap-3.5 pl-1">
           {block.items.map((item, idx) => (
             <li
               key={idx}
-              className="flex items-start gap-3 text-[0.98rem] leading-relaxed text-[#9BAAA4]"
+              className="flex items-start gap-3.5 text-[0.98rem] leading-relaxed text-[#C4CBC8]"
             >
               <span
-                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#BD5B34]"
+                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7FA88F] shadow-[0_0_8px_#7FA88F]"
                 aria-hidden="true"
               />
               <div>
@@ -70,26 +68,31 @@ function BlockRenderer({ block }: { block: Block }) {
 
     case "example":
       return (
-        <div className="my-2 flex flex-col gap-3 rounded-xl border border-[#2E3D37] bg-[#14201D]/90 p-4.5 backdrop-blur-sm">
-          <div className="flex items-start gap-3">
-            <Check
-              size={18}
-              className="mt-0.5 shrink-0 text-[#7FA88F]"
-              aria-hidden="true"
-            />
-            <span className="text-[0.95rem] text-[#C4CBC8]">
+        <div className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {/* Good Practice Card */}
+          <div className="group relative overflow-hidden rounded-xl border border-[#7FA88F]/30 bg-[#7FA88F]/5 p-4 transition-all hover:border-[#7FA88F]/60">
+            <div className="mb-2 flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] font-bold uppercase tracking-wider text-[#7FA88F]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#7FA88F]/20">
+                <Check size={12} className="text-[#7FA88F]" />
+              </span>
+              Lakukan
+            </div>
+            <p className="text-[0.92rem] leading-relaxed text-[#E1E7E4]">
               <HighlightedText text={block.good} />
-            </span>
+            </p>
           </div>
-          <div className="flex items-start gap-3">
-            <X
-              size={18}
-              className="mt-0.5 shrink-0 text-[#BD5B34]"
-              aria-hidden="true"
-            />
-            <span className="text-[0.95rem] text-[#C4CBC8]">
+
+          {/* Bad Practice Card */}
+          <div className="group relative overflow-hidden rounded-xl border border-[#BD5B34]/30 bg-[#BD5B34]/5 p-4 transition-all hover:border-[#BD5B34]/60">
+            <div className="mb-2 flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] font-bold uppercase tracking-wider text-[#BD5B34]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#BD5B34]/20">
+                <X size={12} className="text-[#BD5B34]" />
+              </span>
+              Hindari
+            </div>
+            <p className="text-[0.92rem] leading-relaxed text-[#E1E7E4]">
               <HighlightedText text={block.bad} />
-            </span>
+            </p>
           </div>
         </div>
       );
@@ -101,15 +104,19 @@ export default function BasicsExplorer() {
   const current = TOPICS.find((t) => t.slug === active) ?? TOPICS[0];
 
   return (
-    <section className="mx-auto max-w-6xl px-[4vw] py-16 md:py-20">
-      <p className="mb-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.18em] text-[#7FA88F]">
-        Principles & Mindset
-      </p>
-      <h1 className="mb-12 max-w-2xl font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.2vw,2.6rem)] font-semibold leading-tight text-[#F6F2E9]">
-        Dasar visual yang bikin antarmuka terasa <span className="italic text-[#7FA88F]">"pas"</span> & hidup
-      </h1>
+    <section className="mx-auto max-w-6xl px-6 py-12 md:px-12">
+      {/* Header Section */}
+      <div className="mb-10 max-w-2xl">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#7FA88F]/30 bg-[#7FA88F]/10 px-3 py-1 font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.18em] text-[#7FA88F]">
+          Dasar-dasar Desain
+        </div>
+        <h1 className="mt-4 font-[family-name:var(--font-fraunces)] text-[clamp(2rem,3.5vw,2.8rem)] font-semibold leading-tight text-[#F6F2E9]">
+          Prinsip visual yang bikin antarmuka terasa{" "}
+          <span className="italic text-[#7FA88F]">"pas"</span> & menyenangkan
+        </h1>
+      </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[230px_1fr] md:gap-12">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-[250px_1fr] md:gap-10">
         {/* Navigasi Samping */}
         <nav
           aria-label="Daftar topik dasar desain"
@@ -123,57 +130,65 @@ export default function BasicsExplorer() {
                 type="button"
                 onClick={() => setActive(topic.slug)}
                 aria-current={isActive ? "true" : undefined}
-                className={`group relative shrink-0 rounded-xl border px-4 py-3 text-left font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.08em] transition-all duration-300 md:w-full ${isActive
-                    ? "border-[#7FA88F] bg-[#14201D] text-[#7FA88F] shadow-lg"
-                    : "border-[#2E3D37] bg-[#14201D]/40 text-[#6E7A75] hover:border-[#3D5A4C] hover:bg-[#14201D]/70 hover:text-[#F6F2E9]"
+                className={`group relative shrink-0 overflow-hidden rounded-xl border px-4 py-3.5 text-left font-[family-name:var(--font-mono)] text-[0.78rem] uppercase tracking-[0.08em] transition-all duration-300 md:w-full ${isActive
+                    ? "border-[#7FA88F] bg-[#14201D] text-[#F6F2E9] shadow-lg shadow-[#7FA88F]/5"
+                    : "border-[#2E3D37]/60 bg-[#14201D]/30 text-[#6E7A75] hover:border-[#3D5A4C] hover:bg-[#14201D]/70 hover:text-[#F6F2E9]"
                   }`}
               >
-                <div className="flex items-center justify-between">
-                  <span>
-                    <span className="mr-2 text-[0.68rem] opacity-50">
+                {/* Active Left Indicator Bar */}
+                {isActive && (
+                  <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#7FA88F]" />
+                )}
+
+                <div className="flex items-center justify-between pl-1">
+                  <span className="flex items-center gap-2">
+                    <span
+                      className={`text-[0.68rem] ${isActive ? "text-[#7FA88F]" : "opacity-40"
+                        }`}
+                    >
                       0{index + 1}
                     </span>
                     {topic.title}
                   </span>
-                  {isActive && (
-                    <span className="hidden text-xs text-[#7FA88F] md:inline-block">
-                      →
-                    </span>
-                  )}
+                  <ArrowRight
+                    size={14}
+                    className={`transition-transform duration-300 ${isActive
+                        ? "translate-x-0 opacity-100 text-[#7FA88F]"
+                        : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                      }`}
+                  />
                 </div>
               </button>
             );
           })}
         </nav>
 
-        {/* Card Utama Storytelling */}
-        <div className="relative overflow-hidden rounded-2xl border border-[#2E3D37] bg-[#14201D] p-7 shadow-2xl md:p-10">
-
-          {/* Ambient Mesh Gradient */}
-          <div className="pointer-events-none absolute inset-0 opacity-25">
-            <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-[#7FA88F] blur-3xl" />
-            <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[#3D5A4C] blur-3xl" />
+        {/* Card Utama Content */}
+        <div className="relative overflow-hidden rounded-3xl border border-[#2E3D37] bg-[#14201D] p-6 shadow-2xl md:p-10">
+          {/* Ambient Lighting Background */}
+          <div className="pointer-events-none absolute inset-0 opacity-20">
+            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#7FA88F] blur-[100px]" />
+            <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#BD5B34] blur-[120px]" />
           </div>
 
-          <div className="relative z-10">
+          <div key={current.slug} className="relative z-10 transition-all duration-500 ease-in-out animate-in fade-in slide-in-from-bottom-2">
             {/* Header Topik */}
-            <div className="mb-8 border-b border-[#2E3D37]/80 pb-5">
-              <span className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-[0.2em] text-[#6E7A75]">
-                Materi Bahasan
+            <div className="mb-8 border-b border-[#2E3D37]/80 pb-6">
+              <span className="font-[family-name:var(--font-mono)] text-[0.68rem] uppercase tracking-[0.2em] text-[#7FA88F]">
+                Materi {TOPICS.findIndex((t) => t.slug === active) + 1} Dari {TOPICS.length}
               </span>
-              <h2 className="mt-1 font-[family-name:var(--font-fraunces)] text-2xl font-semibold text-[#F6F2E9] md:text-3xl">
+              <h2 className="mt-2 font-[family-name:var(--font-fraunces)] text-3xl font-semibold text-[#F6F2E9] md:text-4xl">
                 {current.title}
               </h2>
             </div>
 
-            {/* List Blok Paragraf */}
-            <div className="flex max-w-2xl flex-col gap-4">
+            {/* List Blok Content */}
+            <div className="flex max-w-2xl flex-col">
               {current.blocks.map((block, i) => (
                 <BlockRenderer key={i} block={block} />
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

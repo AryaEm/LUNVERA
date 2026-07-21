@@ -24,7 +24,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Lunvera ",
   description:
-    "Pelajari dasar desain lewat perbandingan visual sederhana antara desain biasa dan desain yang lebih baik.",
+    "Pelajari dasar desain website lewat perbandingan visual sederhana antara desain biasa dan desain yang lebih baik.",
 };
 
 export default function RootLayout({
