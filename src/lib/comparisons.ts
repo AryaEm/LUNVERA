@@ -81,6 +81,16 @@ export const COMPARISONS: Comparison[] = [
       "Judul dibuat lebih besar dan tebal, elemen pendukung dibuat lebih kecil dan lebih pudar, membentuk urutan fokus yang jelas.",
     lesson: "Tidak semua elemen boleh bersaing untuk perhatian yang sama. Satu fokus utama, sisanya pendukung.",
   },
+  {
+    slug: "hierarki-semua-sama-penting",
+    categoryKey: "alignment",
+    title: "Semua elemen terlihat sama penting",
+    problem:
+      "Judul, subjudul, dan label memakai ukuran dan ketebalan yang sama, sehingga tidak ada yang menonjol sebagai fokus utama.",
+    whatChanged:
+      "Judul dibuat lebih besar dan tebal, elemen pendukung dibuat lebih kecil dan lebih pudar, membentuk urutan fokus yang jelas.",
+    lesson: "Tidak semua elemen boleh bersaing untuk perhatian yang sama. Satu fokus utama, sisanya pendukung.",
+  },
 ];
 
 export function getComparisonsByCategory(categoryKey: CategoryKey) {

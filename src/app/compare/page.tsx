@@ -31,9 +31,9 @@ const CATEGORY_ACCENT: Record<
     border: "group-hover:border-[#A98FC9]/50",
   },
   Alignment: {
-    color: "#7FA88F",
-    bgLight: "rgba(127, 168, 143, 0.12)",
-    border: "group-hover:border-[#7FA88F]/50",
+    color: "#D98B3D",
+    bgLight: "rgba(217, 139, 61, 0.12)",
+    border: "group-hover:border-[#D98B3D]/50",
   },
 };
 

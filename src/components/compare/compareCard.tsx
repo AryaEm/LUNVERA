@@ -87,6 +87,23 @@ export function CompareCard({ variant }: { variant: Variant }) {
     );
   }
 
+  if (variant === "alignment") {
+    return (
+      <div className="w-full max-w-73 rounded-lg border border-[#2E3D37] bg-[#14201D] p-1">
+        <span className="font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-[0.18em] text-[#6E7A75]">
+          Portofolio
+        </span>
+        <h3 className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold leading-none text-[#F6F2E9]">
+          Kanvas Studio
+        </h3>
+        <p className="text-sm leading-none text-[#9BAAA4]">Jasa desain identitas visual & web untuk brand kecil.</p>
+        <span className="inline-block font-[family-name:var(--font-mono)] text-[0.75rem] font-medium text-[#7FA88F]">
+          Lihat karya →
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-73 rounded-lg border border-[#2E3D37] bg-[#14201D] p-6">
       <span className="font-[family-name:var(--font-mono)] text-sm text-[#F6F2E9]">Portofolio</span>
