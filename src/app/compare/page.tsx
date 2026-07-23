@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CATEGORIES, getComparisonsByCategory } from "@/lib/comparisons";
+import { getCategories, getComparisonsByCategory } from "@/lib/comparisons";
 
 const CATEGORY_ACCENT: Record<
   string,
@@ -67,6 +67,14 @@ function CategoryVisual({ category, accent }: { category: string; accent: string
           <span className="h-0.5 w-4 rounded-full" style={{ background: accent }} />
         </div>
       );
+    case "Alignment":
+      return (
+        <div className="relative flex flex-col gap-1">
+          <span className="ml-2 h-1 w-5 rounded-full" style={{ background: accent, opacity: 0.3 }} />
+          <span className="h-1 w-5 rounded-full" style={{ background: accent }} />
+          <span className="ml-3 h-1 w-5 rounded-full" style={{ background: accent, opacity: 0.3 }} />
+        </div>
+      );
     default:
       return (
         <div className="flex items-end gap-0.5">
@@ -77,7 +85,21 @@ function CategoryVisual({ category, accent }: { category: string; accent: string
   }
 }
 
-export default function ComparePage() {
+export default async function ComparePage() {
+  // 1. Ambil daftar kategori dari Firestore secara async
+  const categories = await getCategories();
+
+  // 2. Hitung jumlah kasus per kategori secara paralel dari Firestore
+  const categoriesWithCounts = await Promise.all(
+    categories.map(async (cat) => {
+      const items = await getComparisonsByCategory(cat.key);
+      return {
+        ...cat,
+        count: items.length,
+      };
+    })
+  );
+
   return (
     <main className="mx-auto min-h-screen max-w-7xl px-6 py-16 lg:px-12">
       <header className="mb-14 max-w-3xl">
@@ -94,13 +116,12 @@ export default function ComparePage() {
       </header>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {CATEGORIES.map((cat) => {
+        {categoriesWithCounts.map((cat) => {
           const config = CATEGORY_ACCENT[cat.label] ?? {
             color: "#7FA88F",
             bgLight: "rgba(127, 168, 143, 0.12)",
             border: "group-hover:border-[#7FA88F]/50",
           };
-          const count = getComparisonsByCategory(cat.key).length;
 
           return (
             <Link
@@ -121,7 +142,7 @@ export default function ComparePage() {
                     <CategoryVisual category={cat.label} accent={config.color} />
                   </div>
                   <span className="font-[family-name:var(--font-mono)] text-[0.68rem] uppercase tracking-widest text-[#2E3D37] transition-colors group-hover:text-[#9BAAA4]">
-                    {count} kasus
+                    {cat.count} kasus
                   </span>
                 </div>
 

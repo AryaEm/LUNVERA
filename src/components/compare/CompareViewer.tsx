@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { MoveHorizontal, Columns2 } from "lucide-react";
-import type { CategoryKey } from "@/lib/comparisons";
+// import type { CategoryKey } from "@/lib/comparisons";
 import { CompareSlider } from "./CompareSlider";
 import { CompareBeforeAfter } from "./CompareBeforeAfter";
 
 type Mode = "slider" | "side-by-side";
 
-export function CompareViewer({ variant }: { variant: CategoryKey  }) {
+export function CompareViewer({ slug }: { slug: string }) {
     const [mode, setMode] = useState<Mode>("slider");
 
     return (
@@ -38,13 +38,13 @@ export function CompareViewer({ variant }: { variant: CategoryKey  }) {
 
             {mode === "slider" ? (
                 <div className="space-y-4">
-                    <CompareSlider variant={variant} />
+                    <CompareSlider slug={slug} />
                     <p className="text-center font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.08em] text-[#6E7A75]">
                         ↔ Geser untuk membandingkan
                     </p>
                 </div>
             ) : (
-                <CompareBeforeAfter variant={variant} />
+                <CompareBeforeAfter slug={slug} />
             )}
         </div>
     );
